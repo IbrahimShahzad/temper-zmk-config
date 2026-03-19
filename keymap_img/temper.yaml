@@ -1,24 +1,24 @@
 layout: {zmk_keyboard: temper}
 layers:
   default:
-  - - Q
-    - W
-    - F
-    - P
-    - B
-    - J
-    - L
-    - U
-    - Y
-    - {t: '''', s: '"'}
-  - [A, R, S, T, G, M, N, E, I, O]
+  - [Q, W, E, R, T, Y, U, I, O, P]
+  - - {t: A, h: LSHIFT}
+    - {t: S, h: ⎇}
+    - {t: D, h: ⌃}
+    - {t: F, h: ⌘}
+    - G
+    - H
+    - {t: J, h: ⌘}
+    - {t: K, h: ⌃}
+    - {t: L, h: ⎇}
+    - {t: '''', h: RSHIFT, s: '"'}
   - - Z
     - X
     - C
-    - D
     - V
-    - K
-    - H
+    - B
+    - N
+    - M
     - {t: ',', s: ;}
     - {t: ., s: ':'}
     - {t: '?', s: '!'}
@@ -28,43 +28,6 @@ layers:
     - SPACE
     - nav
     - {t: default, h: toggle}
-  game:
-  - - ↹
-    - Q
-    - W
-    - E
-    - R
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-  - - ⇧
-    - A
-    - S
-    - D
-    - F
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-  - - ⌃
-    - Z
-    - X
-    - C
-    - V
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-  - - ESC
-    - {t: ▽, type: trans}
-    - SPACE
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
   num:
   - - '~'
     - '@'
@@ -131,7 +94,7 @@ layers:
     - {type: held}
     - {t: ▽, type: trans}
   fun:
-  - - {t: game, h: toggle}
+  - - {t: cmd, h: toggle}
     - MUTE
     - VOL DN
     - VOL UP
@@ -191,8 +154,8 @@ layers:
   - - ⌘Z
     - ⌘X
     - ⌘C
-    - D
     - ⌘V
+    - D
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
