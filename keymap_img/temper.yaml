@@ -29,7 +29,7 @@ layers:
     - nav
     - {t: default, h: toggle}
   num:
-  - - '~'
+  - - {t: '~', s: '`'}
     - '@'
     - '{'
     - '}'
