@@ -2,7 +2,7 @@ layout: {zmk_keyboard: temper}
 layers:
   default:
   - [Q, W, E, R, T, Y, U, I, O, P]
-  - - {t: A, h: LSHIFT}
+  - - A
     - {t: S, h: ⎇}
     - {t: D, h: ⌃}
     - {t: F, h: ⌘}
@@ -11,7 +11,7 @@ layers:
     - {t: J, h: ⌘}
     - {t: K, h: ⌃}
     - {t: L, h: ⎇}
-    - {t: '''', h: RSHIFT, s: '"'}
+    - {t: '''', s: '"'}
   - - Z
     - X
     - C
@@ -22,12 +22,12 @@ layers:
     - {t: ',', s: ;}
     - {t: ., s: ':'}
     - {t: '?', s: '!'}
-  - - cmd
+  - - {t: ⌃, h: sticky}
     - num
     - {t: ⇧, s: ⇪}
     - SPACE
     - nav
-    - {t: default, h: toggle}
+    - cmd
   num:
   - - {t: '~', s: '`'}
     - '@'
@@ -57,36 +57,36 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
   nav:
-  - - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+  - - LOCK
+    - W
+    - (
+    - )
     - {t: ▽, type: trans}
     - DEL
     - HOME
     - END
     - ↹
     - BSPC
-  - - {t: ⇧, h: sticky}
-    - {t: ⌃, h: sticky}
-    - {t: ⎇, h: sticky}
-    - {t: ⌘, h: sticky}
-    - {t: ▽, type: trans}
+  - - {t: '[', s: '{'}
+    - {t: ']', s: '}'}
+    - N
+    - P
+    - S
     - ←
     - ↓
     - ↑
     - →
     - {t: ESC, s: '`'}
-  - - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+  - - {t: Ctl+B, h: sticky}
+    - Z
+    - '{'
+    - '}'
+    - X
+    - /
     - RET
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - '*'
+    - '%'
+    - \
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -94,16 +94,7 @@ layers:
     - {type: held}
     - {t: ▽, type: trans}
   fun:
-  - - {t: cmd, h: toggle}
-    - MUTE
-    - VOL DN
-    - VOL UP
-    - OUT USB
-    - {t: ▽, type: trans}
-    - F7
-    - F8
-    - F9
-    - F12
+  - [LOCK, MUTE, VOL DN, VOL UP, OUT USB, default, F7, F8, F9, F12]
   - - {t: BT, h: '0'}
     - {t: BT, h: '1'}
     - {t: BT, h: '2'}
@@ -131,27 +122,27 @@ layers:
     - {type: held}
     - {t: ▽, type: trans}
   cmd:
-  - - ⌘Q
-    - ⌘W
-    - F
+  - - LOCK
+    - Ctl+Y
+    - Ctl+O
     - Gui+P
-    - B
+    - Ctl+R
+    - default
+    - ⌘W
+    - Gui+T
+    - ⌘Z
+    - {t: ▽, type: trans}
+  - - {t: Ctl+W, h: sticky}
+    - Ctl+N
+    - Ctl+J
+    - V
+    - W
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-  - - ⇧
-    - ⌃
-    - ⎇
-    - ⌘
-    - Gui+G
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-  - - ⌘Z
+  - - {t: Ctl+B, h: sticky}
     - ⌘X
     - ⌘C
     - ⌘V
@@ -161,9 +152,9 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-  - - {type: held}
+  - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - {type: held}
