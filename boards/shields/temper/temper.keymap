@@ -14,22 +14,23 @@
 #define HRMR(k1,k2,k3) &ht RGUI k1  &ht RCTRL k2  &ht RALT k3
 
 #define DEFAULT 0
-#define NUM 1
-#define NAV 2
-#define FUN 3
-#define CMD 4
-
+#define SYM 1
+#define VIM 2
+#define CODE 3
+#define NUM 4
+#define FUN 5
 # define ______ &trans
 
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
-            if-layers = <NUM NAV>;
+            if-layers = <CODE VIM>;
             then-layer = <FUN>;
         };
     };
     behaviors {
+        // HOME ROW
         ht: hold_tap {
             label = "hold_tap";
             compatible = "zmk,behavior-hold-tap";
@@ -37,8 +38,41 @@
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
             quick-tap-ms = <150>;
-            global-quick-tap;
+            /* global-quick-tap; */
             bindings = <&kp>,<&kp>;
+        };
+        // THUMB
+        lt_nav: lt_nav {
+            label = "NAV_BSPC";
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <180>;
+            bindings = <&kp BACKSPACE>, <&mo VIM>;
+        };
+       lt_sym: lt_sym {
+            label = "SYM_SPC";
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <180>;
+            bindings = <&kp SPACE>, <&mo SYM>;
+        };
+       lt_code: lt_code {
+            label = "CODE_RET";
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <180>;
+            bindings = <&kp RET>, <&mo SYM>;
+        };
+       lt_num: lt_num {
+            label = "NUM_TAB";
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <180>;
+            bindings = <&kp TAB>, <&mo NUM>;
         };
         bspc_del: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
@@ -47,12 +81,12 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
             keep-mods = <(MOD_RSFT)>;
         };
-        super_bspc: super_backspace {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp BACKSPACE>, <&kp LA(BACKSPACE)>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+        /* super_bspc: super_backspace { */
+        /*     compatible = "zmk,behavior-mod-morph"; */
+        /*     #binding-cells = <0>; */
+        /*     bindings = <&kp BACKSPACE>, <&kp LA(BACKSPACE)>; */
+        /*     mods = <(MOD_LSFT|MOD_RSFT)>; */
+        /* }; */
         smart_shft: smart_shift {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -71,30 +105,30 @@
             bindings = <&kp DOT>, <&kp COLON>;
             mods = <(MOD_LSFT)>;
         };
-        qmrk_excl: qmrk_excl {
+        eql_excl: eql_excl {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp QMARK>, <&kp EXCL>;
+            bindings = <&kp EQUAL>, <&kp EXCL>;
             mods = <(MOD_LSFT)>;
         };
-        slh_morph: slh_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp FSLH>, <&kp BSLH>;
-            mods = <(MOD_LSFT)>;
-        };
-        amps_morph: amps_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp AMPS>, <&kp PIPE>;
-            mods = <(MOD_LSFT)>;
-        };
-        tilde_morph: tilde_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp TILDE>, <&kp GRAVE>;
-            mods = <(MOD_LSFT)>;
-        };
+        /* slh_morph: slh_morph { */
+        /*     compatible = "zmk,behavior-mod-morph"; */
+        /*     #binding-cells = <0>; */
+        /*     bindings = <&kp FSLH>, <&kp BSLH>; */
+        /*     mods = <(MOD_LSFT)>; */
+        /* }; */
+        /* amps_morph: amps_morph { */
+        /*     compatible = "zmk,behavior-mod-morph"; */
+        /*     #binding-cells = <0>; */
+        /*     bindings = <&kp AMPS>, <&kp PIPE>; */
+        /*     mods = <(MOD_LSFT)>; */
+        /* }; */
+        /* tilde_morph: tilde_morph { */
+        /*     compatible = "zmk,behavior-mod-morph"; */
+        /*     #binding-cells = <0>; */
+        /*     bindings = <&kp TILDE>, <&kp GRAVE>; */
+        /*     mods = <(MOD_LSFT)>; */
+        /* }; */
     };
         keymap {
                 compatible = "zmk,keymap";
@@ -107,36 +141,66 @@
 //      &kp A         &kp S         &kp D         &kp F         &kp G             &kp H         &kp J         &kp K         &kp L       &kp APOS
 	&kp A        HRML(S,            D,            F)        &kp G             &kp H       HRMR(J,             K,            L)      &kp APOS
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-        &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M      &comma_semi    &dot_colon    &qmrk_excl
+        &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M      &comma_semi    &dot_colon    &eql_excl
 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                  &sk LCTRL      &mo NUM     &smart_shft        &kp SPACE      &mo NAV       &mo CMD
+                                  &gresc        &lt_nav       &lt_sym             &lt_sym      &lt_code    &smart_shift
 //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
                         >;
                 };
                 num_layer {
                         bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-     &tilde_morph     &kp AT       &kp LBRC      &kp RBRC     &kp PRCNT          &kp STAR       &kp N7        &kp N8        &kp N9      &kp MINUS
+     ____________     _______      ________      ________    &kp C_VOL_UP         &kp STAR       &kp N7        &kp N8        &kp N9      &kp MINUS
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      &kp CARET      &kp HASH      &kp LPAR      &kp RPAR      &kp DLLR         &kp UNDER       &kp N4        &kp N5        &kp N6      &kp PLUS
+      _________      ________      ________      ________    &kp C_VOL_DN         &kp DOT        &kp N4        &kp N5        &kp N6      &kp PLUS
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      &amps_morph     &kp LT       &kp LBKT      &kp RBKT       &kp GT          &slh_morph      &kp N1        &kp N2        &kp N3      &kp EQUAL
+      _________       ______       ________     _________     &kp K_MUTE          &kp N0         &kp N1        &kp N2        &kp N3      &slh_morph
 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                   ______         ______        ______            &kp N0        ______        ______
+                                   ______         ______        ______            &kp N0        &lt_code        ______
 //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
                         >;
                 };
 
-                nav_layer {
+                code_layer {
                         bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      &kp K_LOCK     &kp W        &kp LPAR      &kp RPAR        ______           &kp DEL       &kp HOME      &kp END       &kp TAB       &kp BSPC
+     ____________     _______      ________      ________      &kp LT             &kp GT       &kp AMPS      &kp PIPE       &kp STAR     ________
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      &kp LBKT      &kp RBKT      &kp N         &kp P          &kp S            &kp LEFT       &kp DOWN       &kp UP        &kp RIGHT       &gresc
+      _________      ________      &kp EXCL      &kp AT        &kp HASH          &kp UNDER     &kp MINUS     &kp EQUAL      &kp PLUS     _________
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      &sk LC(B)      &kp Z        &kp LBRC      &kp RBRC       &kp X            &kp FSLH       &kp RET      &kp STAR      &kp PRCNT      &kp BSLH
+      _________       ______       ________     _________     _______            ______        &kp CARET     _______         _______     _________
 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                    ______        ______        ______            ______        ______        ______
+                                   ______         ______        ______            ______        ______        ______
+//                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+                        >;
+                };
+ 
+                sym_layer {
+                        bindings = <
+// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+     &kp TILDE      &kp GRAVE     &kp LBKT     &kp LBRC       &kp LT             &kp GT        &kp LBRC      &kp LBKT      &kp STAR     &kp UNDER
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+      _________      &kp DQT      &kp SQT       &kp DLLR       &kp LPAR          &kp RPAR      &kp MINUS     &kp EQUAL     &kp PLUS     _________
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &kp QMARK      &kp FSLH      &kp BSLH      &kp SEMI     &kp COLON           &kp DOT       &kp COMMA     &kp AMPS      &kp PIPE     _________
+// ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
+                                   ______         ______        ______            ______        ______        ______
+//                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+                        >;
+                };
+
+
+
+               vim_layer {
+                        bindings = <
+// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+      &kp Q          &kp W        &kp E          &kp R         &kp T            &kp PG_UP      &kp HOME      &kp END      &kp PG_UP      &kp N0
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+      &kp A         &kp S         &kp D         &kp STAR       &kp G            &kp LEFT       &kp DOWN      &kp UP       &kp RIGHT      &kp PRCNT
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+      &kp Z         &kp X         &kp C         &kp V          &kp B            &kp FSLH       &kp RET       &kp STAR     &kp PRCNT      &kp BSLH
+// ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
+                                    ______        ______        ______            ______       &sk LCTRL        ______
 //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
                         >;
                 };
@@ -144,7 +208,7 @@
                 fun_layer {
                         bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      &kp K_LOCK   &kp K_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  &out OUT_USB      &mo DEFAULT      &kp F7        &kp F8        &kp F9       &kp F12
+      &kp K_LOCK   &kp K_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  &out OUT_USB      &to DEFAULT      &kp F7        &kp F8        &kp F9       &kp F12
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4         ______        &kp F4        &kp F5        &kp F6       &kp F11
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -155,18 +219,5 @@
                         >;
                 };
 
-                cmd_layer {
-                        bindings = <
-// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-       &kp K_LOCK   &kp LC(Y)     &kp LC(O)     &kp LG(P)     &kp LC(R)        &mo DEFAULT    &kp LG(W)      &kp LG(T)    &kp LG(Z)        ______  
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-       &sk LC(W)    &kp LC(N)     &kp LC(J)     &kp V         &kp W               ______        ______        ______        ______        ______
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-       &sk LC(B)    &kp LG(X)     &kp LG(C)     &kp LG(V)     &kp D               ______        ______        ______        ______        ______
-// ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                    ______        ______        ______            ______        ______        ______
-//                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-                        >;
-                };
         };
 };
