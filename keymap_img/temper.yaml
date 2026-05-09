@@ -26,7 +26,7 @@ layers:
     - {t: BACKSPACE, h: vim}
     - {t: ↹, h: num}
     - {t: SPACE, h: sym}
-    - {t: RET, h: sym}
+    - {t: RET, h: code}
     - {t: ⇧, s: ⇪}
   sym:
   - - '~'
@@ -63,7 +63,7 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {type: held}
-    - {t: RET, h: sym}
+    - {t: RET, h: code}
     - {t: ▽, type: trans}
   vim:
   - [Q, W, E, R, T, PG UP, HOME, END, PG UP, '0']
@@ -110,7 +110,7 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - {type: held}
     - {t: ▽, type: trans}
   num:
   - - {t: ▽, type: trans}
@@ -147,7 +147,7 @@ layers:
     - {t: ▽, type: trans}
     - {type: held}
     - {t: ▽, type: trans}
-    - {t: RET, h: sym}
+    - {t: RET, h: code}
     - {t: ▽, type: trans}
   fun:
   - - LOCK
@@ -184,5 +184,5 @@ layers:
     - {type: held}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - {type: held}
     - {t: ▽, type: trans}
