@@ -24,7 +24,7 @@ layers:
     - {t: '=', s: '!'}
   - - {t: ESC, s: '`'}
     - {t: BACKSPACE, h: vim}
-    - {t: SPACE, h: sym}
+    - {t: ↹, h: num}
     - {t: SPACE, h: sym}
     - {t: RET, h: sym}
     - {t: ⇧, s: ⇪}
@@ -61,8 +61,8 @@ layers:
     - {t: ▽, type: trans}
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {type: held}
     - {t: ▽, type: trans}
+    - {type: held}
     - {t: RET, h: sym}
     - {t: ▽, type: trans}
   vim:
@@ -145,7 +145,7 @@ layers:
     - /
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - {type: held}
     - {t: ▽, type: trans}
     - {t: RET, h: sym}
     - {t: ▽, type: trans}
