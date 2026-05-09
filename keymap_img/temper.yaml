@@ -62,7 +62,7 @@ layers:
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - '0'
+    - {t: ▽, type: trans}
     - '&lt_code'
     - {t: ▽, type: trans}
   code:
@@ -137,7 +137,7 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - '&lt_code'
     - {t: ▽, type: trans}
   vim:
   - [Q, W, E, R, T, PG UP, HOME, END, PG UP, '0']
