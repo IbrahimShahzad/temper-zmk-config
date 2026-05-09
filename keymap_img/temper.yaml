@@ -35,11 +35,11 @@ layers:
     - '{'
     - <
     - '>'
-    - '{'
-    - {t: '[', s: '{'}
+    - '}'
+    - {t: ']', s: '}'}
     - '*'
     - _
-  - - {t: ▽, type: trans}
+  - - '?'
     - '"'
     - ''''
     - $
@@ -48,17 +48,17 @@ layers:
     - {t: '-', s: _}
     - {t: '=', s: +}
     - +
+    - '%'
+  - - /
     - {t: ▽, type: trans}
-  - - '?'
-    - /
-    - \
+    - {t: ▽, type: trans}
     - {t: ;, s: ':'}
     - ':'
     - {t: ., s: '>'}
     - {t: ',', s: <}
     - '&'
     - '|'
-    - {t: ▽, type: trans}
+    - \
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -66,9 +66,18 @@ layers:
     - {t: RET, h: code}
     - {t: ▽, type: trans}
   vim:
-  - [Q, W, E, R, T, PG UP, HOME, END, PG UP, '0']
+  - [Q, W, E, R, T, PG UP, HOME, END, PG DN, POWER]
   - [A, S, D, '*', G, ←, ↓, ↑, →, '%']
-  - [Z, X, C, V, B, /, RET, '*', '%', \]
+  - - /
+    - X
+    - C
+    - V
+    - B
+    - ^
+    - 'NO'
+    - $
+    - {t: ., s: ':'}
+    - \
   - - {t: ▽, type: trans}
     - {type: held}
     - {t: ▽, type: trans}
@@ -77,21 +86,21 @@ layers:
     - {t: ▽, type: trans}
   code:
   - - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - '#'
+    - {t: '[', s: '{'}
+    - '{'
     - <
     - '>'
-    - '&'
-    - '|'
+    - '}'
+    - {t: ']', s: '}'}
     - '*'
-    - {t: ▽, type: trans}
+    - _
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - '!'
     - '@'
-    - '#'
-    - _
+    - (
+    - )
     - {t: '-', s: _}
     - {t: '=', s: +}
     - +
@@ -103,8 +112,8 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - ^
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - '&'
+    - '|'
     - {t: ▽, type: trans}
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -114,9 +123,9 @@ layers:
     - {t: ▽, type: trans}
   num:
   - - {t: ▽, type: trans}
+    - BRI DN
     - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - BRI UP
     - VOL UP
     - '*'
     - '7'
@@ -124,9 +133,9 @@ layers:
     - '9'
     - {t: '-', s: _}
   - - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - PREV
+    - PP
+    - NEXT
     - VOL DN
     - {t: ., s: '>'}
     - '4'
@@ -135,7 +144,7 @@ layers:
     - +
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - AC DESKTOP SHOW ALL WINDOWS
     - {t: ▽, type: trans}
     - MUTE
     - '0'
@@ -171,9 +180,9 @@ layers:
     - F6
     - F11
   - - BT CLR
-    - PREV
-    - PP
-    - NEXT
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
     - OUT BLE
     - {t: ▽, type: trans}
     - F1
