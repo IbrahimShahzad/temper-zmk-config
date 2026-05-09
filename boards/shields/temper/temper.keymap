@@ -45,34 +45,34 @@
         lt_nav: lt_nav {
             label = "NAV_BSPC";
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <180>;
-            bindings = <&kp BACKSPACE>, <&mo VIM>;
+            bindings = <&mo>, <&kp>;
         };
        lt_sym: lt_sym {
             label = "SYM_SPC";
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <180>;
-            bindings = <&kp SPACE>, <&mo SYM>;
+            bindings = <&mo>, <&kp>;
         };
        lt_code: lt_code {
             label = "CODE_RET";
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <180>;
-            bindings = <&kp RET>, <&mo SYM>;
+            bindings = <&mo>, <&kp>;
         };
        lt_num: lt_num {
             label = "NUM_TAB";
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <180>;
-            bindings = <&kp TAB>, <&mo NUM>;
+            bindings = <&mo>, <&kp>;
         };
         bspc_del: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
@@ -143,7 +143,7 @@
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M      &comma_semi    &dot_colon    &eql_excl
 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                  &gresc        &lt_nav       &lt_sym             &lt_sym      &lt_code    &smart_shft
+                               &gresc  &lt_nav VIM BACKSPACE &lt_sym SYM SPACE &lt_sym SYM SPACE &lt_code SYM RET  &smart_shft
 //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
                         >;
                 };
@@ -156,7 +156,7 @@
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp QMARK      &kp FSLH      &kp BSLH      &kp SEMI     &kp COLON           &kp DOT       &kp COMMA     &kp AMPS      &kp PIPE      ______
 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                   ______         ______        ______            ______        &lt_code       ______
+                                   ______         ______        ______            ______  &lt_code SYM RET   ______
 //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
                         >;
                 };
@@ -198,7 +198,7 @@
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         ______         ______        ______        ______     &kp K_MUTE          &kp N0         &kp N1        &kp N2        &kp N3      &kp FSLH
 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                   ______         ______        ______            ______        &lt_code        ______
+                                   ______         ______        ______            ______  &lt_code SYM RET   ______
 //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
                         >;
                 };
